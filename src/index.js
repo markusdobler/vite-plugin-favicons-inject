@@ -74,7 +74,10 @@ const vitePluginFaviconsInject = (inputSource, inputConfig = {}, pluginInputConf
         throw err;
       });
     },
-    closeBundle() {
+    closeBundle(error) {
+      if (error) {
+        return;
+      }
       const fileCreationPromise = [];
       const { files } = response;
       const { images } = response;
